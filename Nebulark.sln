@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{F4EF969D-F026-4FAA-A9D5-609729242725}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Nebulark", "Nebulark\Nebulark.vcxproj", "{BBD00CBD-8D6D-4F1F-8DEB-F664116367B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBD00CBD-8D6D-4F1F-8DEB-F664116367B8}.Debug|x64.ActiveCfg = Debug|x64
+		{BBD00CBD-8D6D-4F1F-8DEB-F664116367B8}.Debug|x64.Build.0 = Debug|x64
+		{BBD00CBD-8D6D-4F1F-8DEB-F664116367B8}.Release|x64.ActiveCfg = Release|x64
+		{BBD00CBD-8D6D-4F1F-8DEB-F664116367B8}.Release|x64.Build.0 = Release|x64
+		{F4EF969D-F026-4FAA-A9D5-609729242725}.Debug|x64.ActiveCfg = Debug|x64
+		{F4EF969D-F026-4FAA-A9D5-609729242725}.Debug|x64.Build.0 = Debug|x64
+		{F4EF969D-F026-4FAA-A9D5-609729242725}.Release|x64.ActiveCfg = Release|x64
+		{F4EF969D-F026-4FAA-A9D5-609729242725}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5910A532-AE77-4F92-BFC7-B6BED809DA40}
+	EndGlobalSection
+EndGlobal
