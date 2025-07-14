@@ -1,15 +1,15 @@
 #pragma once
 
-#ifdef NA_PLATFORM_WINDOWS
+#ifdef NBL_PLATFORM_WINDOWS
 
 extern Nebulark::Application* Nebulark::CreateApplication();
 
 int main(int argc, char** argv)
 {
 	Nebulark::Log::Init();
-	NA_CORE_WARN("Initialized ");
+	NBL_CORE_WARN("Initialized ");
 	int a = 5;
-	NA_CLIENT_INFO("Hello {0}", a);
+	NBL_CLIENT_INFO("Hello {0}", a);
 
 
 	auto app = Nebulark::CreateApplication();

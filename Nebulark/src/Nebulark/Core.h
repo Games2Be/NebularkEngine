@@ -1,7 +1,7 @@
 #pragma once
 
-#ifdef NA_PLATFORM_WINDOWS
-	#ifdef NA_BUILD_DLL
+#ifdef NBL_PLATFORM_WINDOWS
+	#ifdef NBL_BUILD_DLL
 		#define NEBULARK_API __declspec(dllexport)
 	#else
 		#define NEBULARK_API __declspec(dllimport)	
