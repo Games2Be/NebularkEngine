@@ -1,0 +1,3 @@
+[submodule "Nebulark/vendor/spdlog"]
+	path = Nebulark/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
