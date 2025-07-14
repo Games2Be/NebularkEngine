@@ -24,7 +24,18 @@ project "Nebulark"
     }
 
     includedirs {
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{prj.name}/vendor/SDL/SDL3/include",
+        "%{prj.name}/vendor/ImGui",
+        "%{prj.name}/vendor/Vulkan/include"
+    }
+
+    libdirs {
+        "%{prj.name}/vendor/SDL/SDL3/lib/x64"
+    }
+
+    links {
+        "SDL3"
     }
 
     filter "system:windows"
@@ -39,8 +50,11 @@ project "Nebulark"
         }
 
         postbuildcommands {
-           ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox/")
+            "{COPY} \"%{cfg.buildtarget.relpath}\" ../bin/" .. outputdir .. "/Sandbox",
         }
+
+
+
 
     filter "configurations:Debug"
         defines "NBL_DEBUG"
@@ -53,6 +67,7 @@ project "Nebulark"
     filter "configurations:Dist"
         defines "NBL_DIST"
         optimize "On"
+
 
 project "Sandbox"
     location "Sandbox"
@@ -69,12 +84,16 @@ project "Sandbox"
 
     includedirs {
         "Nebulark/vendor/spdlog/include",
+        "Nebulark/vendor/ImGui",
+        "Nebulark/vendor/SDL/SDL3/include",
+        "Nebulark/vendor/Vulkan/include",
         "Nebulark/src"
     }
     
     links {
         "Nebulark"
     }
+
 
     filter "system:windows"
         cppdialect "C++17"
