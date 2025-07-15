@@ -7,9 +7,7 @@ extern Nebulark::Application* Nebulark::CreateApplication();
 int main(int argc, char** argv)
 {
 	Nebulark::Log::Init();
-	NBL_CORE_WARN("Initialized ");
-	int a = 5;
-	NBL_CLIENT_INFO("Hello {0}", a);
+	NBL_CORE_WARN("Starting Engine ");
 
 
 	auto app = Nebulark::CreateApplication();

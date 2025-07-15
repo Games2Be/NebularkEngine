@@ -4,6 +4,9 @@
     <Filter Include="Nebulark">
       <UniqueIdentifier>{F9C397C3-E590-F2CE-0EAA-E076FAD5275D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Nebulark\Window">
+      <UniqueIdentifier>{C07E72D9-2C0A-E09D-351B-6392A1253C9E}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Nebulark.h" />
@@ -19,6 +22,9 @@
     <ClInclude Include="src\Nebulark\Log.h">
       <Filter>Nebulark</Filter>
     </ClInclude>
+    <ClInclude Include="src\Nebulark\Window\Window.h">
+      <Filter>Nebulark\Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nebulark\Application.cpp">
@@ -26,6 +32,9 @@
     </ClCompile>
     <ClCompile Include="src\Nebulark\Log.cpp">
       <Filter>Nebulark</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Nebulark\Window\Window.cpp">
+      <Filter>Nebulark\Window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
