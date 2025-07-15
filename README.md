@@ -1,23 +1,61 @@
-# NebularkEngine
-Nebulark is a 3D Game Engine made for indie developers.
+# 🌌 NebularkEngine
 
-## Build
+<img width="500" height="500" alt="Logo" src="https://github.com/user-attachments/assets/6a690a5e-6853-4430-9648-40c060af9240" /><img width="500" height="500" alt="Games2Be_FullLogo" src="https://github.com/user-attachments/assets/5e3e935c-ed91-4242-bd7c-7d75869f0af8" />
 
-1. **Clone the repository with**:
-   ```sh
-   git clone https://github.com/Games2Be/NebularkEngine.git
-   ```
-2. **Extract the Files**:
-   
-   <img width="342" height="170" alt="{EFAF738E-7A82-40CF-80BF-DDBA1C1027FC}" src="https://github.com/user-attachments/assets/46371c64-5744-458a-90c3-369ec0aa3cc0" />
 
-   
-4. **Run the Premake generator**:
-   ```sh
-   GenerateProject.bat  # Generates project files for your compiler/IDE
-   ```
-   <img width="639" height="444" alt="image" src="https://github.com/user-attachments/assets/dc757962-930d-4cc4-9cad-1b3ed87b0c38" />
 
-5. **Open the `.sln` with you're editor of choice**:
-     
-   <img width="644" height="439" alt="{83BC1541-999C-4515-A54E-7B13109EE4DC}" src="https://github.com/user-attachments/assets/a33fe97b-de03-4f28-a7d9-17807562a8b6" />
+NebularkEngine is a lightweight, modular, cross-platform C++ game engine built from scratch. It focuses on performance, extensibility, and learning-by-building — offering real-time rendering, input handling, and modular architecture using modern APIs like Vulkan and SDL.
+
+---
+
+## 🚀 Features
+
+- ✅ Cross-platform window creation (via SDL)
+- ✅ High-performance Vulkan rendering backend
+- ✅ Real-time input system (keyboard + mouse)
+- ✅ Delta time and fixed timestep support
+- ✅ Modular build system using Premake5
+- ✅ Logging and event dispatching system
+- 🚧 (Upcoming) Scene graph and ECS system
+- 🚧 (Upcoming) Resource and asset management
+
+---
+
+## 🖥️ Getting Started
+
+### 🔧 Prerequisites
+
+- C++17-compatible compiler
+- [Vulkan SDK](https://vulkan.lunarg.com/)
+- [SDL3](https://www.libsdl.org/)
+- [Premake5](https://premake.github.io/)
+- Git
+
+> 💡 Be sure to install and configure the Vulkan SDK properly for your OS.
+
+### 🔨 Build Instructions (Windows)
+
+```bash
+git clone https://github.com/Games2Be/NebularkEngine.git
+cd NebularkEngine
+GenerateProject.bat
+```
+
+---
+
+## 🤝 Contributing
+  We welcome contributions of all kinds!
+
+  📘 [Read the Contributing Guide](https://github.com/Games2Be/NebularkEngine/blob/main/CONTRIBUTING.md)
+
+  Check out good first issue
+
+---
+
+## 📜 License
+  This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## 🧠 Credits
+  Built with ❤️ by Games2Be.
+  Inspired by modern game engine architecture 
+  and real-time rendering techniques.
