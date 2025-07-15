@@ -8,7 +8,7 @@ namespace Nebulark
 	class Window
 	{
 	public:
-		Window(std::string* name, int width, int height);
+		Window(const char *name, int width, int height);
 		~Window();
 
 	private:

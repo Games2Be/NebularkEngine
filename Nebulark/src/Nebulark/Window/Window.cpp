@@ -7,7 +7,7 @@
 
 namespace Nebulark
 {
-	Window::Window(std::string* name, int width, int height)
+	Window::Window(const char *name, int width, int height)
 	{
 		
 
@@ -18,7 +18,7 @@ namespace Nebulark
 			return;
 		}
 
-		window = SDL_CreateWindow((const char*)name, width, height, 0);
+		window = SDL_CreateWindow(name, width, height, 0);
 
 		if (window == nullptr) {
 			const char* error = SDL_GetError();

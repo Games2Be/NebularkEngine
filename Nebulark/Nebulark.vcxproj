@@ -155,14 +155,22 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Nebulark\Events\InputManager.h" />
+    <ClInclude Include="src\Nebulark\Events\Event.h" />
+    <ClInclude Include="src\Nebulark\Events\Handlers\EventManager.h" />
     <ClInclude Include="src\Nebulark.h" />
     <ClInclude Include="src\Nebulark\Application.h" />
     <ClInclude Include="src\Nebulark\Core.h" />
     <ClInclude Include="src\Nebulark\EntryPoint.h" />
+    <ClInclude Include="src\Nebulark\Events\Types\KeyEvent.h" />
+    <ClInclude Include="src\Nebulark\Events\Types\MouseEvent.h" />
     <ClInclude Include="src\Nebulark\Log.h" />
     <ClInclude Include="src\Nebulark\Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Nebulark\Events\InputManager.cpp" />
+    <ClCompile Include="src\Nebulark\Events\Event.cpp" />
+    <ClCompile Include="src\Nebulark\Events\Handlers\EventManager.cpp" />
     <ClCompile Include="src\Nebulark\Application.cpp" />
     <ClCompile Include="src\Nebulark\Log.cpp" />
     <ClCompile Include="src\Nebulark\Window\Window.cpp" />
