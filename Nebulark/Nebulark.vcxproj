@@ -166,6 +166,7 @@
     <ClInclude Include="src\Nebulark\Events\Types\MouseEvent.h" />
     <ClInclude Include="src\Nebulark\Log.h" />
     <ClInclude Include="src\Nebulark\Window\Window.h" />
+    <ClInclude Include="src\Nebulark\Core\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nebulark\Events\InputManager.cpp" />
