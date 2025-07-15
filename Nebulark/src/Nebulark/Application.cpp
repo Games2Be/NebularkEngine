@@ -8,6 +8,7 @@
 #include "Events/Types/KeyEvent.h"
 #include "Events/Types/MouseEvent.h"
 #include "Events/InputManager.h"
+#include "Core/Timer.h"
 
 #define WIDTH 1280
 #define HEIGHT 680
@@ -33,8 +34,14 @@ namespace Nebulark
 
 		running = true;
 
+		Timer timer;
+
 		while (running)
 		{
+			float deltaTime = timer.getDeltaTime();
+
+			NBL_CORE_INFO("Delta Time: {0} seconds", deltaTime);
+
 			Input.Reset(); 
 			eventManager.PollEvents();
 			if (Input.IsMouseButtonJustPressed(1)){
