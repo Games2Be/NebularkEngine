@@ -1,6 +1,6 @@
-1. Clone your fork locally:
+1. Clone the project:
    ```bash
-   git clone https://github.com/your-username/repository.git
+   git clone https://github.com/Games2Be/NebularkEngine.git
    ```
 2. ```bash
    cd NebularkEngine
