@@ -18,7 +18,21 @@ Thank you for considering contributing to our project! We welcome contributions 
    ```bash
    git clone https://github.com/your-username/repository.git
    ```
-3. Set up development environment (see [Readme](Readme))
+3. ```bash
+   cd NebularkEngine
+   git submodule update --init --recursive
+   ```
+4. Add premake5.exe to the root of your solution (eg. NebularkEngine/premake5.exe
+5. ```bash
+   GenerateProject.bat
+   ```
+6. Go to Nebulark/vendor/SDL/SDL3/build in file explorer and open the "SDL3.sln"
+7. Right click and build the INSTALL (Don't worry about any errors)
+8. In Nebulark/vendor/SDL/SDL3/build/Release copy the SDL3.dll to bin/Debug-windows-x86_64/Sandbox
+9. Open the main solution "Nebulark.sln"
+10. Right click Sandbox and "Set as startup project"
+11. And run the project on Debug and x64
+   
 
 ## Reporting Issues
 
@@ -33,7 +47,7 @@ When opening an issue, please include:
 ### Workflow
   1. Create a new branc:
      ```bash
-     git checkout -b type/description
+     git checkout -b type/description(eg. graphics/rendering-pipeline)
      ```
      Branch type prefixes:
      - `feat/ `: New features
@@ -92,4 +106,3 @@ Common types:
 - Assume good intentions
 - Keep discussions contructive
 - Follow our [Code of Conduct](CODE_OF_CONDUCT.md)
-- 
