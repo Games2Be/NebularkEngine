@@ -1,6 +1,6 @@
 # 🌌 NebularkEngine
 
-<img width="500" height="500" alt="Logo" src="https://github.com/user-attachments/assets/6a690a5e-6853-4430-9648-40c060af9240" /><img width="500" height="500" alt="Games2Be_FullLogo" src="https://github.com/user-attachments/assets/5e3e935c-ed91-4242-bd7c-7d75869f0af8" />
+<img width="200" height="200" alt="Logo" src="https://github.com/user-attachments/assets/6a690a5e-6853-4430-9648-40c060af9240" />
 
 
 
@@ -33,20 +33,16 @@ NebularkEngine is a lightweight, modular, cross-platform C++ game engine built f
 
 > 💡 Be sure to install and configure the Vulkan SDK properly for your OS.
 
-### 🔨 Build Instructions (Windows)
+### 🔨 Build Instructions (Currently Only Windows)
 
-```bash
-git clone https://github.com/Games2Be/NebularkEngine.git
-cd NebularkEngine
-GenerateProject.bat
-```
+  Refer to the [Build document](BUILD.md)
 
 ---
 
 ## 🤝 Contributing
   We welcome contributions of all kinds!
 
-  📘 [Read the Contributing Guide](https://github.com/Games2Be/NebularkEngine/blob/main/CONTRIBUTING.md)
+  📘 [Read the Contributing Guide](CONTRIBUTING.md)
 
   Check out good first issue
 
