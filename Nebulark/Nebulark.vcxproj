@@ -91,11 +91,11 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\SDL\SDL3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\dev\NebularkEngine\Nebulark\src\Nebulark;vendor\SDL\SDL3\build\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Nebulark\Nebulark.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST "..\bin\Debug-windows-x86_64\Nebulark\Nebulark.dll"\ (xcopy /Q /E /Y /I "..\bin\Debug-windows-x86_64\Nebulark\Nebulark.dll" ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I "..\bin\Debug-windows-x86_64\Nebulark\Nebulark.dll" ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST "..\bin\Debug-windows-x86_64\Nebulark\Nebulark.dll"\ (xcopy /Q /E /Y /I "..\bin\Debug-windows-x86_64\Nebulark\Nebulark.dll" "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I "..\bin\Debug-windows-x86_64\Nebulark\Nebulark.dll" "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -119,11 +119,11 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\SDL\SDL3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\dev\NebularkEngine\Nebulark\src\Nebulark;vendor\SDL\SDL3\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Release-windows-x86_64\Nebulark\Nebulark.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST "..\bin\Release-windows-x86_64\Nebulark\Nebulark.dll"\ (xcopy /Q /E /Y /I "..\bin\Release-windows-x86_64\Nebulark\Nebulark.dll" ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I "..\bin\Release-windows-x86_64\Nebulark\Nebulark.dll" ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST "..\bin\Release-windows-x86_64\Nebulark\Nebulark.dll"\ (xcopy /Q /E /Y /I "..\bin\Release-windows-x86_64\Nebulark\Nebulark.dll" "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I "..\bin\Release-windows-x86_64\Nebulark\Nebulark.dll" "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -147,33 +147,38 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\SDL\SDL3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\dev\NebularkEngine\Nebulark\src\Nebulark;vendor\SDL\SDL3\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Dist-windows-x86_64\Nebulark\Nebulark.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST "..\bin\Dist-windows-x86_64\Nebulark\Nebulark.dll"\ (xcopy /Q /E /Y /I "..\bin\Dist-windows-x86_64\Nebulark\Nebulark.dll" ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I "..\bin\Dist-windows-x86_64\Nebulark\Nebulark.dll" ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST "..\bin\Dist-windows-x86_64\Nebulark\Nebulark.dll"\ (xcopy /Q /E /Y /I "..\bin\Dist-windows-x86_64\Nebulark\Nebulark.dll" "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I "..\bin\Dist-windows-x86_64\Nebulark\Nebulark.dll" "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Nebulark\Events\InputManager.h" />
-    <ClInclude Include="src\Nebulark\Events\Event.h" />
-    <ClInclude Include="src\Nebulark\Events\Handlers\EventManager.h" />
     <ClInclude Include="src\Nebulark.h" />
     <ClInclude Include="src\Nebulark\Application.h" />
     <ClInclude Include="src\Nebulark\Core.h" />
+    <ClInclude Include="src\Nebulark\Core\Timer.h" />
     <ClInclude Include="src\Nebulark\EntryPoint.h" />
+    <ClInclude Include="src\Nebulark\Events\Event.h" />
+    <ClInclude Include="src\Nebulark\Events\Handlers\EventManager.h" />
+    <ClInclude Include="src\Nebulark\Events\InputManager.h" />
+    <ClInclude Include="src\Nebulark\Events\Types\JoystickEvent.h" />
     <ClInclude Include="src\Nebulark\Events\Types\KeyEvent.h" />
     <ClInclude Include="src\Nebulark\Events\Types\MouseEvent.h" />
+    <ClInclude Include="src\Nebulark\Graphics\RenderPipeline.h" />
     <ClInclude Include="src\Nebulark\Log.h" />
+    <ClInclude Include="src\Nebulark\Renderer\VulkanRenderer.h" />
     <ClInclude Include="src\Nebulark\Window\Window.h" />
-    <ClInclude Include="src\Nebulark\Core\Timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Nebulark\Events\InputManager.cpp" />
+    <ClCompile Include="src\Nebulark\Application.cpp" />
     <ClCompile Include="src\Nebulark\Events\Event.cpp" />
     <ClCompile Include="src\Nebulark\Events\Handlers\EventManager.cpp" />
-    <ClCompile Include="src\Nebulark\Application.cpp" />
+    <ClCompile Include="src\Nebulark\Events\InputManager.cpp" />
+    <ClCompile Include="src\Nebulark\Graphics\RenderPipeline.cpp" />
     <ClCompile Include="src\Nebulark\Log.cpp" />
+    <ClCompile Include="src\Nebulark\Renderer\VulkanRenderer.cpp" />
     <ClCompile Include="src\Nebulark\Window\Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

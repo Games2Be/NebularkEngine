@@ -12,6 +12,10 @@ namespace Nebulark {
         eventManager.RegisterListener(EventType::KeyUp, [this](Event& e) { OnKeyUp(e); });
         eventManager.RegisterListener(EventType::MouseButtonDown, [this](Event& e) { OnMouseButtonDown(e); });
         eventManager.RegisterListener(EventType::MouseButtonUp, [this](Event& e) { OnMouseButtonUp(e); });
+		eventManager.RegisterListener(EventType::MouseMotion, [this](Event& e) { SetMouseX(e); SetMouseY(e); });
+        eventManager.RegisterListener(EventType::StickDown, [this](Event& e) { OnStickDown(e); });
+        eventManager.RegisterListener(EventType::StickUp, [this](Event& e) { OnStickUp(e); });
+        
     }
 
     void InputManager::OnKeyDown(Event& e)
@@ -58,7 +62,18 @@ namespace Nebulark {
 
     }
 
+    void InputManager::SetMouseX(Event& e)
+    {
+        auto& mouseEvent = static_cast<MouseMotionEvent&>(e);
 
+        mouseX = mouseEvent.x;
+
+    }
+    void InputManager::SetMouseY(Event& e)
+    {
+        auto& mouseEvent = static_cast<MouseMotionEvent&>(e);
+        mouseY = mouseEvent.y;
+    }
     bool InputManager::IsKeyDown(SDL_Keycode key) const
     {
         return keysDown.find(key) != keysDown.end();
@@ -115,5 +130,66 @@ namespace Nebulark {
         keysJustReleased.clear();
         mouseButtonsJustPressed.clear();
         mouseButtonsJustReleased.clear();
+		sticksJustPressed.clear();
+		sticksJustReleased.clear();
+
     }
+    bool InputManager::IsStickDown(SDL_GamepadButton button) const
+    {
+        return sticksDown.find(button) != sticksDown.end();
+    }
+    bool InputManager::IsStickUp(SDL_GamepadButton button) const
+    {
+        return sticksDown.find(button) == sticksDown.end();
+    }
+    bool InputManager::IsStickJustPressed(SDL_GamepadButton button) const
+    {
+        return sticksJustPressed.find(button) != sticksJustPressed.end();
+    }
+    bool InputManager::IsStickJustReleased(SDL_GamepadButton button) const
+    {
+        return sticksJustReleased.find(button) != sticksJustReleased.end();
+    }
+    float InputManager::GetLeftStickX() const
+    {
+        return leftStickX;
+    }
+    float InputManager::GetLeftStickY() const
+    {
+        return leftStickY;
+    }
+    float InputManager::GetRightStickX() const
+    {
+        return rightStickX;
+    }
+    float InputManager::GetRightStickY() const
+    {
+        return rightStickY;
+    }
+    float InputManager::GetLeftTrigger() const
+    {
+        return leftTrigger;
+    }
+    float InputManager::GetRightTrigger() const
+    {
+        return rightTrigger;
+    }
+    void InputManager::OnStickDown(Event& e)
+    {
+		auto& stickEvent = static_cast<StickDownEvent&>(e);
+        if (sticksDown.find(stickEvent.button) == sticksDown.end()) {
+            sticksJustPressed.insert(stickEvent.button); // only if it wasn't already down
+        }
+        sticksDown.insert(stickEvent.button);
+    }
+
+	void InputManager::OnStickUp(Event& e)
+	{
+        auto& stickEvent = static_cast<StickUpEvent&>(e);
+        if (sticksDown.find(stickEvent.button) == sticksDown.end()) {
+            sticksJustReleased.insert(stickEvent.button); // only if it was down
+        }
+        sticksDown.erase(stickEvent.button);
+	}
+   
 }

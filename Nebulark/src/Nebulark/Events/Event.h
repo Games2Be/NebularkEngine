@@ -13,6 +13,10 @@ namespace Nebulark
 		MouseButtonDown,
 		MouseButtonUp,
 		MouseMotion,
+		MouseWheel,
+		StickDown,
+		StickUp,
+		StickMotion,
 		Window
 	};
 

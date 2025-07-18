@@ -3,6 +3,7 @@
 #include <SDL3/SDL.h>
 #include "../Log.h"
 #include "iostream"
+#include <SDL3/SDL_vulkan.h>
 
 
 namespace Nebulark
@@ -11,14 +12,14 @@ namespace Nebulark
 	{
 		
 
-		if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD) < 0) {
 			const char* error = SDL_GetError();
 			NBL_CORE_ERROR("SDL failed to initialise: {0}", error[0] ? error : "(no error message)");
 
 			return;
 		}
 
-		window = SDL_CreateWindow(name, width, height, 0);
+		window = SDL_CreateWindow(name, width, height, SDL_WINDOW_VULKAN);
 
 		if (window == nullptr) {
 			const char* error = SDL_GetError();
@@ -32,6 +33,19 @@ namespace Nebulark
 		}
 	}
 
+
+	void Window::createWindowSurface(VkInstance instance, VkSurfaceKHR* surface)
+	{
+		if (!SDL_Vulkan_CreateSurface(window, instance, nullptr, surface)) {
+			const char* error = SDL_GetError();
+			NBL_CORE_ERROR("Failed to create Vulkan surface: {0}", error[0] ? error : "(no error message)");
+			return;
+		}
+		else
+		{
+			NBL_CORE_INFO("Vulkan surface created successfully");
+		}
+	}
 
 	Window::~Window()
 	{

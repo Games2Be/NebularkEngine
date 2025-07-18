@@ -9,6 +9,7 @@
 #include "Events/Types/MouseEvent.h"
 #include "Events/InputManager.h"
 #include "Core/Timer.h"
+#include <filesystem>
 
 #define WIDTH 1280
 #define HEIGHT 680
@@ -27,20 +28,21 @@ namespace Nebulark
 
 	void Application::Run()
 	{
-		const char *windowName = "Nebulark";
-		Window window(windowName, WIDTH, HEIGHT);
 
+		const char *windowName = "Nebulark";
+
+		// Initializers go here
+		Window window(windowName, WIDTH, HEIGHT);
 		InputManager Input(eventManager);
+		Timer timer;
 
 		running = true;
 
-		Timer timer;
-
 		while (running)
 		{
+
 			float deltaTime = timer.getDeltaTime();
 
-			NBL_CORE_INFO("Delta Time: {0} seconds", deltaTime);
 
 			Input.Reset(); 
 			eventManager.PollEvents();
@@ -53,8 +55,17 @@ namespace Nebulark
 			}
 
 			if (Input.IsKeyJustReleased(SDLK_SPACE)) {
-				NBL_CORE_INFO("Space key released.");
+				NBL_CORE_INFO("Mouse pos x: {0}, Mouse pos y: {1}", Input.GetMouseX(), Input.GetMouseY());
 			}
+
+			if (Input.IsStickJustPressed(SDL_GAMEPAD_BUTTON_DPAD_UP))
+			{
+				NBL_CORE_INFO("Gamepad North button pressed.");
+			}
+
+			// Render logic would go here
+
+			
 
 			SDL_Delay(16);
 		}

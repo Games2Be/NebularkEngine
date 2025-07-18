@@ -30,13 +30,19 @@ project "Nebulark"
         "%{prj.name}/vendor/Vulkan/include"
     }
 
-    libdirs {
-        "%{prj.name}/vendor/SDL/SDL3/lib/x64"
-    }
+    --libdirs {
+    --    "%{prj.name}/vendor/SDL/SDL3/build/Release"
+    --}
 
     links {
         "SDL3"
     }
+
+    filter "configurations:Debug"
+        libdirs { "Nebulark/vendor/SDL/SDL3/build/Debug" }
+
+    filter "configurations:Release or Dist"
+        libdirs { "Nebulark/vendor/SDL/SDL3/build/Release" }
 
     filter "system:windows"
         cppdialect "C++17"
@@ -50,8 +56,9 @@ project "Nebulark"
         }
 
         postbuildcommands {
-            "{COPY} \"%{cfg.buildtarget.relpath}\" ../bin/" .. outputdir .. "/Sandbox",
+            '{COPY} "%{cfg.buildtarget.relpath}" "../bin/' .. outputdir .. '/Sandbox/"'
         }
+
 
 
 
