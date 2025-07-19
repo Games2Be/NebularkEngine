@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Core.h"
-#include "Events/Handlers/EventManager.h"
-#include "Graphics/RenderPipeline.h"
 #include <filesystem>
 #include "Log.h"
 #include "Window/Window.h"
@@ -14,18 +12,14 @@ namespace Nebulark
 	public:
 		Application();
 		virtual ~Application();
+
 		void Run();
+		bool Init();
+		void Update();
+		void Shutdown();
 
 	private:
-
-		bool running = true;
-		EventManager eventManager;
-
-		RenderPipeline pipeline{
-			"Shaders/simple_shader_vert.spv",
-			"Shaders/simple_shader_frag.spv"
-		};
-
+		Window* window;
 
 	};
 	//To be defined in CLIENT

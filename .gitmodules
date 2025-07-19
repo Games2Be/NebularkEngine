@@ -4,3 +4,6 @@
 [submodule "Nebulark/vendor/SDL/SDL3"]
 	path = Nebulark/vendor/SDL/SDL3
 	url = https://github.com/libsdl-org/SDL.git
+[submodule "Nebulark/vendor/glfw"]
+	path = Nebulark/vendor/glfw
+	url = https://github.com/glfw/glfw.git

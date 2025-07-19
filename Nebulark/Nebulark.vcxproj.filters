@@ -7,21 +7,6 @@
     <Filter Include="Nebulark\Core">
       <UniqueIdentifier>{F14B37C0-5D0C-B3F6-2647-FC7392C6F7D2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Nebulark\Events">
-      <UniqueIdentifier>{BD1D5CB0-29A9-C974-32BA-4C699EC42575}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Nebulark\Events\Handlers">
-      <UniqueIdentifier>{3D832D0E-29A8-7C8E-52F3-611E3E777BAC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Nebulark\Events\Types">
-      <UniqueIdentifier>{217BD326-8DE7-8E21-56DB-267FC206B189}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Nebulark\Graphics">
-      <UniqueIdentifier>{59143ED3-C52A-3C69-0EA2-C78A7AF70CF1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Nebulark\Renderer">
-      <UniqueIdentifier>{BF8FD52E-2BA6-D3C4-741D-5FE6E072A44C}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Nebulark\Window">
       <UniqueIdentifier>{C07E72D9-2C0A-E09D-351B-6392A1253C9E}</UniqueIdentifier>
     </Filter>
@@ -40,32 +25,8 @@
     <ClInclude Include="src\Nebulark\EntryPoint.h">
       <Filter>Nebulark</Filter>
     </ClInclude>
-    <ClInclude Include="src\Nebulark\Events\Event.h">
-      <Filter>Nebulark\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Nebulark\Events\Handlers\EventManager.h">
-      <Filter>Nebulark\Events\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Nebulark\Events\InputManager.h">
-      <Filter>Nebulark\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Nebulark\Events\Types\JoystickEvent.h">
-      <Filter>Nebulark\Events\Types</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Nebulark\Events\Types\KeyEvent.h">
-      <Filter>Nebulark\Events\Types</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Nebulark\Events\Types\MouseEvent.h">
-      <Filter>Nebulark\Events\Types</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Nebulark\Graphics\RenderPipeline.h">
-      <Filter>Nebulark\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="src\Nebulark\Log.h">
       <Filter>Nebulark</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Nebulark\Renderer\VulkanRenderer.h">
-      <Filter>Nebulark\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Nebulark\Window\Window.h">
       <Filter>Nebulark\Window</Filter>
@@ -75,23 +36,8 @@
     <ClCompile Include="src\Nebulark\Application.cpp">
       <Filter>Nebulark</Filter>
     </ClCompile>
-    <ClCompile Include="src\Nebulark\Events\Event.cpp">
-      <Filter>Nebulark\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Nebulark\Events\Handlers\EventManager.cpp">
-      <Filter>Nebulark\Events\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Nebulark\Events\InputManager.cpp">
-      <Filter>Nebulark\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Nebulark\Graphics\RenderPipeline.cpp">
-      <Filter>Nebulark\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="src\Nebulark\Log.cpp">
       <Filter>Nebulark</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Nebulark\Renderer\VulkanRenderer.cpp">
-      <Filter>Nebulark\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Nebulark\Window\Window.cpp">
       <Filter>Nebulark\Window</Filter>

@@ -25,28 +25,29 @@ project "Nebulark"
 
     includedirs {
         "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/vendor/SDL/SDL3/include",
-        "%{prj.name}/vendor/ImGui",
-        "%{prj.name}/vendor/Vulkan/include"
+        "%{prj.name}/vendor/glfw/include",
+        os.getenv("VULKAN_SDK") .. "/Include"
+
     }
 
-    --libdirs {
-    --    "%{prj.name}/vendor/SDL/SDL3/build/Release"
-    --}
+    libdirs {
+        os.getenv("VULKAN_SDK") .. "/Lib"
+    }
 
     links {
-        "SDL3"
+        "glfw3",
+        "vulkan-1"
     }
 
     filter "configurations:Debug"
-        libdirs { "Nebulark/vendor/SDL/SDL3/build/Debug" }
+        libdirs { "Nebulark/vendor/glfw/build/src/Debug" }
 
     filter "configurations:Release or Dist"
-        libdirs { "Nebulark/vendor/SDL/SDL3/build/Release" }
+        libdirs { "Nebulark/vendor/glfw/build/src/Release" }
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
+        staticruntime "Off"
         systemversion "latest"
         buildoptions { "/utf-8" }
 
@@ -56,7 +57,8 @@ project "Nebulark"
         }
 
         postbuildcommands {
-            '{COPY} "%{cfg.buildtarget.relpath}" "../bin/' .. outputdir .. '/Sandbox/"'
+            '{COPY} "%{cfg.buildtarget.relpath}" "../bin/' .. outputdir .. '/Sandbox/"',
+            '{COPY} "$(VULKAN_SDK)/Lib/vulkan-1.lib" "../bin/' .. outputdir .. '/Sandbox/"'
         }
 
 
@@ -91,9 +93,8 @@ project "Sandbox"
 
     includedirs {
         "Nebulark/vendor/spdlog/include",
-        "Nebulark/vendor/ImGui",
-        "Nebulark/vendor/SDL/SDL3/include",
-        "Nebulark/vendor/Vulkan/include",
+        "Nebulark/vendor/glfw/include",
+        os.getenv("VULKAN_SDK") .. "/Include",
         "Nebulark/src"
     }
     
@@ -104,7 +105,7 @@ project "Sandbox"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
+        staticruntime "Off"
         systemversion "latest"
         buildoptions { "/utf-8" }
 

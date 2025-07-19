@@ -1,8 +1,8 @@
 #pragma once
 
 #include "iostream"
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_vulkan.h>
+#include "GLFW/glfw3.h"
+#include "vulkan/vulkan.h"
 
 namespace Nebulark
 {
@@ -11,11 +11,11 @@ namespace Nebulark
 	public:
 		
 		Window(const char* name, int width, int height);
-		//Create window surface
-		void createWindowSurface(VkInstance instance, VkSurfaceKHR* surface);
 		~Window();
+		GLFWwindow* GetGLFWwindow() const { return window; }
 
 	private:
-		SDL_Window* window = nullptr;
+		GLFWwindow* window;
+
 	};
 }

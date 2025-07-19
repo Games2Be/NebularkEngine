@@ -1,74 +1,57 @@
-#include <SDL3/SDL.h>
 #include "Application.h"
-#include "Window/Window.h"
-#include "iostream"
-#include "Events/Handlers/EventManager.h"#include "Events/Event.h"
-#include "SDL3/SDL_keycode.h"
 #include "Log.h"
-#include "Events/Types/KeyEvent.h"
-#include "Events/Types/MouseEvent.h"
-#include "Events/InputManager.h"
-#include "Core/Timer.h"
-#include <filesystem>
-
-#define WIDTH 1280
-#define HEIGHT 680
+#include "Window/Window.h"
 
 namespace Nebulark
 {
-	Application::Application() {
-		eventManager.RegisterListener(EventType::Quit, [this](Event& e) {
-			NBL_CORE_INFO("Quit event received, shutting down application.");
-			// Handle cleanup or shutdown logic here if needed
-			running = false;
-			});
-	}
+    Application::Application() 
+    {
+    }
 
-	Application::~Application() {}
+    Application::~Application() 
+    {
+    }
 
 	void Application::Run()
 	{
+        const uint32_t WIDTH = 800;
+        const uint32_t HEIGHT = 600;
 
-		const char *windowName = "Nebulark";
+		window = new Window("Nebulark Engine", WIDTH, HEIGHT);
 
-		// Initializers go here
-		Window window(windowName, WIDTH, HEIGHT);
-		InputManager Input(eventManager);
-		Timer timer;
+		Init();
+		Update();
+		Shutdown();
 
-		running = true;
-
-		while (running)
+		if (window)
 		{
-
-			float deltaTime = timer.getDeltaTime();
-
-
-			Input.Reset(); 
-			eventManager.PollEvents();
-			if (Input.IsMouseButtonJustPressed(1)){
-				NBL_CORE_INFO("Mouse pos x: {0}, Mouse pos y: {1}", Input.GetMouseX(), Input.GetMouseY());
-			}
-
-			if (Input.IsKeyJustPressed(SDLK_ESCAPE)) {
-				NBL_CORE_INFO("Escape key pressed");
-			}
-
-			if (Input.IsKeyJustReleased(SDLK_SPACE)) {
-				NBL_CORE_INFO("Mouse pos x: {0}, Mouse pos y: {1}", Input.GetMouseX(), Input.GetMouseY());
-			}
-
-			if (Input.IsStickJustPressed(SDL_GAMEPAD_BUTTON_DPAD_UP))
-			{
-				NBL_CORE_INFO("Gamepad North button pressed.");
-			}
-
-			// Render logic would go here
-
-			
-
-			SDL_Delay(16);
+			delete window;
+			window = nullptr;
 		}
 	}
-}
 
+    bool Application::Init()
+    {
+        return true;
+    
+    }
+
+    void Application::Update()
+    {
+		if (!window)
+		{
+			NBL_CORE_ERROR("Window is not initialized.");
+			return;
+		}
+
+        while (!glfwWindowShouldClose(window->GetGLFWwindow()))
+        {
+			glfwPollEvents();
+        }
+    }
+    void Application::Shutdown()
+    {
+		NBL_CORE_INFO("Shutting down Nebulark Engine...");
+        NBL_CORE_INFO("Nebulark Engine shutdown complete.");
+    }
+}
