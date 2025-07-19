@@ -91,7 +91,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\dev\NebularkEngine\Nebulark\src\Nebulark;vendor\SDL\SDL3\build\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\SDL\SDL3\build\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Nebulark\Nebulark.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -119,7 +119,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\dev\NebularkEngine\Nebulark\src\Nebulark;vendor\SDL\SDL3\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\SDL\SDL3\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Release-windows-x86_64\Nebulark\Nebulark.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -147,7 +147,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\dev\NebularkEngine\Nebulark\src\Nebulark;vendor\SDL\SDL3\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\SDL\SDL3\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Dist-windows-x86_64\Nebulark\Nebulark.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
