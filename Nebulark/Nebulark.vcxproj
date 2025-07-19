@@ -164,12 +164,16 @@ IF EXIST "$(VULKAN_SDK)\Lib\vulkan-1.lib"\ (xcopy /Q /E /Y /I "$(VULKAN_SDK)\Lib
     <ClInclude Include="src\Nebulark\Core\Timer.h" />
     <ClInclude Include="src\Nebulark\EntryPoint.h" />
     <ClInclude Include="src\Nebulark\Log.h" />
+    <ClInclude Include="src\Nebulark\Renderer\VulkanConfig.h" />
+    <ClInclude Include="src\Nebulark\Renderer\VulkanUtils.h" />
     <ClInclude Include="src\Nebulark\Window\Window.h" />
+    <ClInclude Include="src\Nebulark\Renderer\VulkanRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nebulark\Application.cpp" />
     <ClCompile Include="src\Nebulark\Log.cpp" />
     <ClCompile Include="src\Nebulark\Window\Window.cpp" />
+    <ClCompile Include="src\Nebulark\Renderer\VulkanRenderer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

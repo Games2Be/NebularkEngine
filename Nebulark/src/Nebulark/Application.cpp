@@ -1,7 +1,7 @@
 #include "Application.h"
 #include "Log.h"
 #include "Window/Window.h"
-
+#include "Renderer/VulkanRenderer.h"
 namespace Nebulark
 {
     Application::Application() 
@@ -14,8 +14,8 @@ namespace Nebulark
 
 	void Application::Run()
 	{
-        const uint32_t WIDTH = 800;
-        const uint32_t HEIGHT = 600;
+        const uint32_t WIDTH = 1280;
+        const uint32_t HEIGHT = 680;
 
 		window = new Window("Nebulark Engine", WIDTH, HEIGHT);
 
@@ -30,9 +30,10 @@ namespace Nebulark
 		}
 	}
 
-    bool Application::Init()
+    void Application::Init()
     {
-        return true;
+		VulkanRenderer renderer;
+		renderer.InitVulkan();
     
     }
 

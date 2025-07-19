@@ -31,6 +31,9 @@
     <ClInclude Include="src\Nebulark\Window\Window.h">
       <Filter>Nebulark\Window</Filter>
     </ClInclude>
+    <ClInclude Include="src\Nebulark\Renderer\VulkanRenderer.h" />
+    <ClInclude Include="src\Nebulark\Renderer\VulkanConfig.h" />
+    <ClInclude Include="src\Nebulark\Renderer\VulkanUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nebulark\Application.cpp">
@@ -42,5 +45,6 @@
     <ClCompile Include="src\Nebulark\Window\Window.cpp">
       <Filter>Nebulark\Window</Filter>
     </ClCompile>
+    <ClCompile Include="src\Nebulark\Renderer\VulkanRenderer.cpp" />
   </ItemGroup>
 </Project>

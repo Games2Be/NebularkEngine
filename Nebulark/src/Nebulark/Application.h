@@ -14,7 +14,7 @@ namespace Nebulark
 		virtual ~Application();
 
 		void Run();
-		bool Init();
+		void Init();
 		void Update();
 		void Shutdown();
 
