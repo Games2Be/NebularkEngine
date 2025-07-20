@@ -1,11 +1,17 @@
 #include "VulkanRenderer.h"
 #include "vulkan/vulkan.h"
 #include "../Log.h"
-#include <GLFW/glfw3.h>
 #include "VulkanConfig.h"
 #include "VulkanUtils.h"
 #include <optional>
 #include <iostream>
+
+
+#define VK_USE_PLATFORM_WIN32_KHR
+#define GLFW_INCLUDE_VULKAN
+#include <GLFW/glfw3.h>
+#define GLFW_EXPOSE_NATIVE_WIN32
+#include <GLFW/glfw3native.h>
 
 namespace Nebulark
 {
@@ -90,6 +96,7 @@ namespace Nebulark
     {
         createInstance();
         pickPhysicalDevice();
+		createLogicalDevice();
         // Here you can proceed to initialize physical device, logical device, etc.
     }
 
@@ -135,7 +142,6 @@ namespace Nebulark
 
 		NBL_CORE_INFO("Picking physical device...");
 
-        VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
         uint32_t deviceCount = 0;
         vkEnumeratePhysicalDevices(instance, &deviceCount, nullptr);
 		if (deviceCount == 0) {
@@ -173,6 +179,50 @@ namespace Nebulark
             vkDestroyInstance(instance, nullptr);
             instance = VK_NULL_HANDLE;
             NBL_CORE_INFO("Vulkan instance destroyed.");
+            vkDestroyDevice(device, nullptr);
         }
+    }
+    void VulkanRenderer::createLogicalDevice()
+    {
+		// This function should create a logical device and queues based on the selected physical device.
+		// It is not implemented in this example, but you can follow the Vulkan documentation to implement it.
+		NBL_CORE_INFO("Creating logical device...");
+		// Example code to create a logical device would go here.
+		// You would typically use vkCreateDevice() and set up queue creation info.
+		// For now, we will just log that this function was called.
+
+        QueueFamilyIndices indices = findQueueFamilies(physicalDevice);
+
+        VkDeviceQueueCreateInfo queueCreateInfo{};
+        queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+        queueCreateInfo.queueFamilyIndex = indices.graphicsFamily.value();
+        queueCreateInfo.queueCount = 1;
+
+        float queuePriority = 1.0f;
+        queueCreateInfo.pQueuePriorities = &queuePriority;
+        VkPhysicalDeviceFeatures deviceFeatures{};
+		VkDeviceCreateInfo createInfo{};
+        createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+        createInfo.pQueueCreateInfos = &queueCreateInfo;
+        createInfo.queueCreateInfoCount = 1;
+
+        createInfo.pEnabledFeatures = &deviceFeatures;
+        createInfo.enabledExtensionCount = 0;
+
+        if (enableValidationLayers) {
+            createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
+            createInfo.ppEnabledLayerNames = validationLayers.data();
+        }
+        else {
+            createInfo.enabledLayerCount = 0;
+        }
+        if (vkCreateDevice(physicalDevice, &createInfo, nullptr, &device) != VK_SUCCESS) {
+			NBL_CORE_ERROR("Failed to create logical device!");
+            throw std::runtime_error("failed to create logical device!");
+        }
+
+        vkGetDeviceQueue(device, indices.graphicsFamily.value(), 0, &graphicsQueue);
+		NBL_CORE_INFO("Logical device created successfully.");
+
     }
 }
